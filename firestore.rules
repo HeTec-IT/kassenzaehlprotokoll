@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn()   { return request.auth != null; }
+    function isAdmin()    { return signedIn() && request.auth.token.get('email', '') in ['d.dasilva@hetec-gmbh.de']
+                                   && request.auth.token.firebase.sign_in_provider == 'password'; }
+    function validShop(s) { return s in ['o2-aalen', 'o2-sindelfingen', 'o2-crailsheim', 'o2-schwaebisch-hall', 'o2-stuttgart-vaihingen', 'telekom-crailsheim']; }
+
+    // Protokolle: Shops (anonym) lesen/anlegen, Ändern/Löschen nur Regionalleitung
+    match /shops/{shopId}/protokolle/{docId} {
+      allow read:   if signedIn() && validShop(shopId);
+      allow create: if signedIn() && validShop(shopId) && request.resource.data.shop == shopId;
+      allow update, delete: if isAdmin();
+    }
+
+    // Fotos (Miniaturen, 30 Tage)
+    match /shops/{shopId}/fotos/{docId} {
+      allow read:   if signedIn() && validShop(shopId);
+      allow create: if signedIn() && validShop(shopId);
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
