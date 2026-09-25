@@ -1,0 +1,28 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null && request.auth.token.email != null; }
+    function isAdmin()  { return signedIn() && request.auth.token.email in ['d.dasilva@hetec-gmbh.de']; }
+    function isShop(shopId) { return signedIn() && request.auth.token.email == shopId + '@kassen.hetec-gmbh.de'; }
+
+    // Protokolle: Shop liest/schreibt nur eigene; Änderungen/Löschen nur Regionalleitung
+    match /shops/{shopId}/protokolle/{docId} {
+      allow read:   if isAdmin() || isShop(shopId);
+      allow create: if (isAdmin() || isShop(shopId)) && request.resource.data.shop == shopId;
+      allow update, delete: if isAdmin();
+    }
+
+    // Fotos (Miniaturen, 30 Tage)
+    match /shops/{shopId}/fotos/{docId} {
+      allow read:   if isAdmin() || isShop(shopId);
+      allow create: if (isAdmin() || isShop(shopId)) && request.resource.size() < 900000;
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
