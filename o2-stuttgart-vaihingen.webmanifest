@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll o2 Stuttgart Vaihingen",
+  "short_name": "Kasse Vaih.",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "o2-stuttgart-vaihingen",
+  "start_url": "o2-stuttgart-vaihingen",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",

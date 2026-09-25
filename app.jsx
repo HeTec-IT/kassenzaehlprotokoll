@@ -1,7 +1,7 @@
 const { useState, useEffect, useMemo } = React;
 
 /* ================= KONFIGURATION ================= */
-const APP_VERSION = '1.0';
+const APP_VERSION = '1.1';
 const CONFIG = {
   MAIL_TO: 'd.dasilva@hetec-gmbh.de',
   MAIL_CC: '',                                   // z.B. 'b.sacher@hetec-gmbh.de, s.hitzler@hetec-gmbh.de'
@@ -61,7 +61,7 @@ const dFull = t => new Date(t).toLocaleString('de-DE',{day:'2-digit',month:'2-di
 const dDay = t => new Date(t).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
 const sameDay = (a,b) => new Date(a).toDateString() === new Date(b).toDateString();
 const ROOT = new URL('.', document.baseURI).href;                 // https://hetec-it.github.io/kassenzaehlprotokoll/
-const PAGE_SHOP = SHOPS.find(s => location.pathname.toLowerCase().split('/').includes(s.id));
+const PAGE_SHOP = SHOPS.find(s => location.pathname.toLowerCase().split('/').map(x => x.replace(/\.html$/,'')).includes(s.id));
 const shopById = id => SHOPS.find(s => s.id === id);
 const kasseLbl = (shop,k) => shop.kassen.length > 1 ? ` ${k}` : '';
 const isAdminUser = u => !!(u && !u.isAnonymous && u.email && CONFIG.ADMIN_EMAILS.map(x => x.toLowerCase()).includes(u.email.toLowerCase()));
@@ -562,7 +562,7 @@ function LinksTab({ toast }){
     <div className="card">
       <h2>Shop-Links</h2>
       <p className="muted small">Jeder Shop öffnet nur seinen Link und sieht nur seine eigenen Daten. Link öffnen → „Zum Home-Bildschirm“.</p>
-      {SHOPS.map(s => { const u = `${ROOT}${s.id}/`; return (
+      {SHOPS.map(s => { const u = `${ROOT}${s.id}`; return (
         <div className="linkrow" key={s.id}><span className={'dot ' + s.brand}></span>
           <span style={{flex:1}}><b>{s.name}</b><br/><a className="small" href={u} style={{color:'var(--petrol)',wordBreak:'break-all'}}>{u}</a></span>
           <button className="btn ghost inline" onClick={() => copyText(u, () => toast('Link kopiert'))}>Link kopieren</button></div>); })}

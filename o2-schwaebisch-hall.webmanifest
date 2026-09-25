@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll o2 Schwäbisch Hall",
+  "short_name": "Kasse S-Hall",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "o2-schwaebisch-hall",
+  "start_url": "o2-schwaebisch-hall",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",

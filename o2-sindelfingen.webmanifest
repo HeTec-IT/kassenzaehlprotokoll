@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll o2 Sindelfingen",
+  "short_name": "Kasse Sifi",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "o2-sindelfingen",
+  "start_url": "o2-sindelfingen",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",

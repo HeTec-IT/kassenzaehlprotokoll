@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll o2 Aalen",
+  "short_name": "Kasse Aalen",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "o2-aalen",
+  "start_url": "o2-aalen",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",

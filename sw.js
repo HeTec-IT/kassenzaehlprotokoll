@@ -1,6 +1,6 @@
 // Kassenzählprotokoll – Service Worker (bei Updates VERSION erhöhen)
 const VERSION = 'kasse-v1.1';
-const SHELL = ["./", "./index.html", "./app.jsx", "./app.css", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./o2-aalen/", "./o2-sindelfingen/", "./o2-crailsheim/", "./o2-schwaebisch-hall/", "./o2-stuttgart-vaihingen/", "./telekom-crailsheim/", "./o2-aalen/manifest.webmanifest", "./o2-sindelfingen/manifest.webmanifest", "./o2-crailsheim/manifest.webmanifest", "./o2-schwaebisch-hall/manifest.webmanifest", "./o2-stuttgart-vaihingen/manifest.webmanifest", "./telekom-crailsheim/manifest.webmanifest"];
+const SHELL = ["./", "./index.html", "./app.jsx", "./app.css", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./o2-aalen", "./o2-sindelfingen", "./o2-crailsheim", "./o2-schwaebisch-hall", "./o2-stuttgart-vaihingen", "./telekom-crailsheim", "./o2-aalen.webmanifest", "./o2-sindelfingen.webmanifest", "./o2-crailsheim.webmanifest", "./o2-schwaebisch-hall.webmanifest", "./o2-stuttgart-vaihingen.webmanifest", "./telekom-crailsheim.webmanifest"];
 const CDN = ['cdnjs.cloudflare.com', 'www.gstatic.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
 self.addEventListener('install', e => {

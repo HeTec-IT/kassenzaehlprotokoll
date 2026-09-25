@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll o2 Crailsheim",
+  "short_name": "Kasse CR",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "o2-crailsheim",
+  "start_url": "o2-crailsheim",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",

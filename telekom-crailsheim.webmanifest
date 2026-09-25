@@ -1,9 +1,9 @@
 {
-  "name": "Kassenübersicht Regionalleitung",
-  "short_name": "Kasse Admin",
+  "name": "Kassenzählprotokoll Telekom Crailsheim",
+  "short_name": "Kasse TK CR",
   "lang": "de",
-  "id": "admin",
-  "start_url": "./",
+  "id": "telekom-crailsheim",
+  "start_url": "telekom-crailsheim",
   "scope": "./",
   "display": "standalone",
   "background_color": "#EEF1F4",
